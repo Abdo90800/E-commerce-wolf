@@ -11,8 +11,15 @@ import {
   X,
 } from "lucide-react";
 import { Filters, Product } from "../types/CategoryTypes";
-import { heroSlides, mockProducts } from "../mockData/CategoryData";
+import { mockProducts } from "../mockData/CategoryData";
 import { ProductCard } from "../components";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { HeroSlider } from "../mockData";
+import { CiGrid41 } from "react-icons/ci";
+import { CiGrid2H } from "react-icons/ci";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 // Components
 const Breadcrumbs = () => (
@@ -24,52 +31,6 @@ const Breadcrumbs = () => (
     <span className="current">Products</span>
   </nav>
 );
-
-const HeroSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  };
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
-    );
-  };
-  return (
-    <div className="hero-slider">
-      <div
-        className="slides-container"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {heroSlides.map((slide) => (
-          <div key={slide.id} className="slide">
-            <div className="content">
-              <div className="text-container">
-                <h2>{slide.title}</h2>
-                <p>{slide.description}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <button onClick={prevSlide} className="nav-button prev">
-        <ChevronLeft />
-      </button>
-      <button onClick={nextSlide} className="nav-button next">
-        <ChevronRight />
-      </button>
-      <div className="dots">
-        {heroSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`dot ${index === currentSlide ? "active" : ""}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const StarRating = ({ rating }) => (
   <div className="star-rating">
@@ -227,7 +188,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           disabled={currentPage === 1}
           className="prev-next"
         >
-          Previous
+          <IoIosArrowBack fontSize={24} />
         </button>
         <div>
           {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
@@ -240,7 +201,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                   currentPage === page ? "active" : "inactive"
                 }`}
               >
-                {page}
+                <span className="page-span">{page}</span>
               </button>
             );
           })}
@@ -250,7 +211,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           disabled={currentPage === totalPages}
           className="prev-next"
         >
-          Next
+          <IoIosArrowForward fontSize={24} />
         </button>
       </div>
       <div className="go-to-page">
@@ -414,13 +375,13 @@ export function CategoryPage() {
                     onClick={() => setIsListView(false)}
                     className={isListView ? "inactive" : "active"}
                   >
-                    <Grid />
+                    <CiGrid41 />
                   </button>
                   <button
                     onClick={() => setIsListView(true)}
                     className={isListView ? "active" : "inactive"}
                   >
-                    <List />
+                    <CiGrid2H />
                   </button>
                 </div>
               </div>

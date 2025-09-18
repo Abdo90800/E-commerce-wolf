@@ -1,4 +1,5 @@
 // Mock Data
+import PlaceholderImage from "../assets/images/PlaceholderImage 3.png";
 export const mockProducts = [
   {
     id: 1,
@@ -137,20 +138,59 @@ export const mockProducts = [
 export const heroSlides = [
   {
     id: 1,
-    title: "Summer Collection",
-    description: "Discover our latest summer arrivals",
-    image: "/api/placeholder/1200/400",
+    image: PlaceholderImage,
   },
   {
     id: 2,
-    title: "Tech Deals",
-    description: "Amazing discounts on electronics",
-    image: "/api/placeholder/1200/400",
+    image: PlaceholderImage,
   },
   {
     id: 3,
-    title: "Home Essentials",
-    description: "Everything you need for your home",
-    image: "/api/placeholder/1200/400",
+    image: PlaceholderImage,
+  },
+  {
+    id: 4,
+    image: PlaceholderImage,
+  },
+  {
+    id: 5,
+    image: PlaceholderImage,
+  },
+  {
+    id: 6,
+    image: PlaceholderImage,
+  },
+  {
+    id: 7,
+    image: PlaceholderImage,
+  },
+  {
+    id: 8,
+    image: PlaceholderImage,
+  },
+  {
+    id: 9,
+    image: PlaceholderImage,
+  },  {
+    id: 10,
+    image: PlaceholderImage,
+  },  {
+    id: 11,
+    image: PlaceholderImage,
+  },  {
+    id: 12,
+    image: PlaceholderImage,
+  },  {
+    id: 13,
+    image: PlaceholderImage,
+  },  {
+    id: 14,
+    image: PlaceholderImage,
+  },  {
+    id: 15,
+    image: PlaceholderImage,
+  },  {
+    id: 16,
+    image: PlaceholderImage,
   },
 ];

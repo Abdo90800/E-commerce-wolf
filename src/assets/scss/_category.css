@@ -20,9 +20,9 @@
 .hero-slider {
   position: relative;
   margin-bottom: 2rem;
+  margin-top: 6rem;
   overflow: hidden;
   border-radius: 0.5rem;
-  background-color: #111827;
 }
 
 .hero-slider .slides-container {
@@ -36,40 +36,59 @@
   position: relative;
 }
 
-.hero-slider .slide .content {
-  height: 16rem;
-  background: linear-gradient(to right, #2563eb, #7c3aed);
+.hero-slider .slide .img-slider {
+  width: 416px;
+  height: 323px;
+  opacity: 1;
+  border-radius: 4px;
+  border-width: 2px;
+  border: 2px solid #000000;
+  object-fit: cover;
+}
+
+.hero-slider .slide .ptn-slider {
+  position: absolute;
+  top: 0;
+  left: 4rem;
+  background-color: #000000;
+  width: 284px;
+  height: 37px;
+  opacity: 1;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 10px;
+  border-radius: 4px;
+  background: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-}
-
-.hero-slider .slide .content .text-container {
-  text-align: center;
-}
-
-.hero-slider .slide .content .text-container h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.hero-slider .slide .content .text-container p {
-  font-size: 1.25rem;
-  opacity: 0.9;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  z-index: 2;
 }
 
 .hero-slider .nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #000000;
   backdrop-filter: blur(4px);
   color: white;
-  padding: 0.5rem;
-  border-radius: 9999px;
   transition: background-color 0.3s;
+  width: 70px;
+  height: 104px;
+  opacity: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 10px;
+  border-radius: 4px;
 }
 
 .hero-slider .nav-button:hover {
@@ -87,27 +106,6 @@
 .hero-slider .nav-button svg {
   width: 1.5rem;
   height: 1.5rem;
-}
-
-.hero-slider .dots {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-}
-
-.hero-slider .dots .dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: background-color 0.3s;
-}
-
-.hero-slider .dots .dot.active {
-  background-color: white;
 }
 
 .star-rating {

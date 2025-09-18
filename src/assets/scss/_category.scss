@@ -22,9 +22,9 @@
 .hero-slider {
   position: relative;
   margin-bottom: 2rem;
+  margin-top: 6rem;
   overflow: hidden;
   border-radius: 0.5rem;
-  background-color: #111827;
 
   .slides-container {
     display: flex;
@@ -36,28 +36,41 @@
     flex-shrink: 0;
     position: relative;
 
-    .content {
-      height: 16rem;
-      background: linear-gradient(to right, #2563eb, #7c3aed);
+    .img-slider {
+      width: 416px;
+      height: 323px;
+      opacity: 1;
+      border-radius: 4px;
+      border-width: 2px;
+      border: 2px solid #000000;
+      object-fit: cover;
+    }
+    .ptn-slider {
+      position: absolute;
+      top: 0;
+      left: 4rem;
+      background-color: #000000;
+      width: 284px;
+      height: 37px;
+      opacity: 1;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      gap: 10px;
+      border-radius: 4px;
+      background: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-
-      .text-container {
-        text-align: center;
-
-        h2 {
-          font-size: 2.25rem;
-          font-weight: 700;
-          margin-bottom: 0.5rem;
-        }
-
-        p {
-          font-size: 1.25rem;
-          opacity: 0.9;
-        }
-      }
+      cursor: pointer;
+      color: #fff;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      z-index: 2;
     }
   }
 
@@ -65,15 +78,21 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #000000;
     backdrop-filter: blur(4px);
     color: white;
-    padding: 0.5rem;
-    border-radius: 9999px;
     transition: background-color 0.3s;
+    width: 70px;
+    height: 104px;
+    opacity: 1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px 0px #0000001a;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: #374151;
     }
 
     &.prev {
@@ -90,26 +109,26 @@
     }
   }
 
-  .dots {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.5rem;
+  // .dots {
+  //   position: absolute;
+  //   bottom: 1rem;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   display: flex;
+  //   gap: 0.5rem;
 
-    .dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 9999px;
-      background-color: rgba(255, 255, 255, 0.5);
-      transition: background-color 0.3s;
+  //   .dot {
+  //     width: 0.75rem;
+  //     height: 0.75rem;
+  //     border-radius: 9999px;
+  //     background-color: rgba(255, 255, 255, 0.5);
+  //     transition: background-color 0.3s;
 
-      &.active {
-        background-color: white;
-      }
-    }
-  }
+  //     &.active {
+  //       background-color: white;
+  //     }
+  //   }
+  // }
 }
 
 // StarRating
@@ -617,18 +636,28 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
+    width: 416px;
+    height: 52px;
+    justify-content: space-between;
+    opacity: 1;
+    border-radius: 4px;
+    border-width: 1px;
+    border: 1px solid #d6d6d7;
     .page-button {
       padding: 0.5rem 0.75rem;
       border-radius: 0.5rem;
 
       &.active {
-        background-color: #2563eb;
+        background-color: #000000;
         color: white;
+        border: 1px solid #d1d5db;
       }
 
       &.inactive {
         border: 1px solid #d1d5db;
+
+        gap: 10px;
+        border-radius: 4px;
 
         &:hover {
           background-color: #f9fafb;
@@ -638,8 +667,9 @@
 
     .prev-next {
       padding: 0.5rem 0.75rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.5rem;
+      border: none;
+      border-right: 1px solid #d1d5db;
+      height: 100%;
 
       &.disabled {
         opacity: 0.5;
@@ -673,13 +703,13 @@
 
     .go-button {
       padding: 0.25rem 0.75rem;
-      background-color: #2563eb;
+      background-color: #000000;
       color: white;
       border-radius: 0.25rem;
       font-size: 0.875rem;
 
       &:hover {
-        background-color: #1d4ed8;
+        background-color: #000000;
       }
     }
   }
@@ -835,12 +865,20 @@
 
               button {
                 padding: 0.5rem;
-                border-radius: 0.5rem;
+                border-radius: 4px;
+                background: #f0f0f0;
+
                 transition: background-color 0.3s;
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+                gap: 3.33px;
+                border-radius: 4px;
+                border-width: 0.83px;
 
                 &.active {
-                  background-color: #2563eb;
-                  color: white;
+                  background-color: #000000;
+                  color: #f0f0f0;
                 }
 
                 &.inactive {

@@ -14,7 +14,7 @@ import { FaRegHeart } from "react-icons/fa";
 import React, { useState } from "react";
 import discount from "../assets/svgs/discount.svg";
 import star from "../assets/svgs/star.svg";
-import abdelazez from "../assets/images/abdelazez-profile-pic.png";
+import PlaceholderImage from "../assets/images/PlaceholderImage 3.png";
 export const ProductCard = ({ product, isListView }) => {
   const StarRating = ({ rating }) => (
     <div className="star-rating">
@@ -66,7 +66,7 @@ export const ProductCard = ({ product, isListView }) => {
   return (
     <div className="product-card grid-view">
       <div className="image-container">
-        <img src={""} alt="" />
+        <img src={PlaceholderImage} alt="" />
 
         {product.isNew && <span className="new-badge">New</span>}
 
