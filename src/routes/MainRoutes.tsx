@@ -3,6 +3,8 @@ import { lazy } from "react";
 
 import { MainLayout } from "../layouts";
 import { CategoryPage } from "../pages";
+import Checkout from "../pages/Checkout/Checkout";
+import CheckoutPage from "../pages/CheckOut";
 
 const MainRoutes = [
   {
@@ -25,7 +27,7 @@ const MainRoutes = [
   // },
   {
     path: "/:locale",
-    element: <CategoryPage />,
+    element: <CheckoutPage />,
     children: [],
   },
 ];
