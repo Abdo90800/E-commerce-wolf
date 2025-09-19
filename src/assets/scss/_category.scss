@@ -167,6 +167,10 @@
     gap: 16px;
     opacity: 1;
     position: relative;
+    @media (max-width: 750px) {
+      width: 95%;
+      height: 502px;
+    }
     &:hover {
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
@@ -184,6 +188,11 @@
         height: 100%;
         object-fit: cover;
         border-radius: 0.5rem;
+
+        @media (max-width: 768px) {
+          width: 90%;
+          margin: 0 auto;
+        }
       }
 
       .placeholder {
@@ -254,6 +263,11 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      flex-wrap: wrap;
+      @media (max-width: 750px) {
+        display: flex;
+        margin-left: -4rem;
+      }
       h3 {
         font-family: Noto Kufi Arabic;
         font-weight: 500;
@@ -307,7 +321,10 @@
         opacity: 1;
         padding-right: 12px;
         padding-left: 12px;
-
+        @media (max-width: 750px) {
+          width: 95%;
+          margin-left: 4rem;
+        }
         &:hover {
           background-color: #111827;
         }
@@ -319,7 +336,8 @@
       }
     }
   }
-
+  @media (min-width: 750px) {
+  }
   &.list-view {
     background-color: white;
     border-radius: 0.5rem;
@@ -643,6 +661,10 @@
     border-radius: 4px;
     border-width: 1px;
     border: 1px solid #d6d6d7;
+    @media (max-width: 750px) {
+      width: 100%;
+      margin-left: 4rem;
+    }
     .page-button {
       padding: 0.5rem 0.75rem;
       border-radius: 0.5rem;
@@ -851,11 +873,6 @@
                 padding: 0.5rem 0.75rem;
                 font-size: 0.875rem;
               }
-
-              .product-count {
-                font-size: 0.875rem;
-                color: #4b5563;
-              }
             }
 
             .view-toggle {
@@ -934,5 +951,39 @@
         }
       }
     }
+  }
+}
+.product-count {
+  padding-right: 10px;
+  opacity: 1;
+  font-family: Noto Kufi Arabic;
+  font-weight: 400;
+  font-style: 10px;
+  font-size: 14px;
+  line-height: 130%;
+  letter-spacing: 0%;
+}
+@media (max-width: 750px) {
+  .header-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    width: 95%;
+  }
+}
+@media (max-width: 750px) {
+  .pagination {
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+@media (max-width: 750px) {
+  .nav-buttons {
+    width: 100%;
+    width: auto;
   }
 }

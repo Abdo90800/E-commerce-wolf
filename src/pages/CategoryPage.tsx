@@ -20,6 +20,7 @@ import { CiGrid41 } from "react-icons/ci";
 import { CiGrid2H } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { useTheme, useMediaQuery, Box } from "@mui/material";
 
 // Components
 const Breadcrumbs = () => (
@@ -214,6 +215,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           <IoIosArrowForward fontSize={24} />
         </button>
       </div>
+
       <div className="go-to-page">
         <span>Go to page:</span>
         <input
@@ -290,7 +292,8 @@ export function CategoryPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const itemsPerPage = 6;
-
+  const isMobile = useMediaQuery("750px");
+  const isDesktop = useMediaQuery("1024px");
   // Filter and sort products
   const filteredProducts = useMemo(() => {
     let filtered = mockProducts.filter((product) => {
@@ -329,7 +332,6 @@ export function CategoryPage() {
     currentPage * itemsPerPage
   );
 
-  // Reset pagination when filters change
   React.useEffect(() => {
     setCurrentPage(1);
   }, [filters, sortBy]);
@@ -346,6 +348,7 @@ export function CategoryPage() {
             isOpen={isMobileFiltersOpen}
             setIsOpen={setIsMobileFiltersOpen}
           />
+
           <div className="main">
             <div className="header-controls">
               <div className="controls-container">
@@ -366,11 +369,11 @@ export function CategoryPage() {
                     <option value="price-high">Price: High to Low</option>
                     <option value="rating">Highest Rated</option>
                   </select>
+                </div>
+                <div className="view-toggle">
                   <span className="product-count">
                     {filteredProducts.length} products found
                   </span>
-                </div>
-                <div className="view-toggle">
                   <button
                     onClick={() => setIsListView(false)}
                     className={isListView ? "inactive" : "active"}
@@ -386,6 +389,7 @@ export function CategoryPage() {
                 </div>
               </div>
             </div>
+
             <div className={`products-grid ${isListView ? "list" : "grid"}`}>
               {paginatedProducts.map((product) => (
                 <ProductCard

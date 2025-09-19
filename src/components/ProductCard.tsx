@@ -35,30 +35,35 @@ export const ProductCard = ({ product, isListView }) => {
             <div className="inner-placeholder"></div>
           </div>
           {product.isNew && <span className="new-badge">New</span>}
+          <button
+            onClick={() => setIsFavorite(!isFavorite)}
+            className={`favorite-button ${isFavorite ? "active" : "inactive"}`}
+          >
+            <FaRegHeart className={isFavorite ? "fill-current" : ""} />
+          </button>
         </div>
         <div className="content">
-          <h3>{product.title}</h3>
-          <p>{product.description}</p>
-        </div>
-        <div className="actions">
-          <span className="price">${product.price}</span>
-          <div className="buttons">
-            <button
-              onClick={() => setIsFavorite(!isFavorite)}
-              className={`favorite-button ${
-                isFavorite ? "active" : "inactive"
-              }`}
-            >
-              <Heart className={isFavorite ? "fill-current" : ""} />
-            </button>
-            <span>
-              <img src={discount} alt="" />
-            </span>
-            <button className="add-to-cart">
-              <ShoppingCart />
-              <span>Add to Cart</span>
-            </button>
+          <h3 className="product-name">{product.title}</h3>
+          <div className="price-section">
+            <span className="price">${product.price}</span>
           </div>
+          <div className="rating-section">
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star
+                  key={star}
+                  size={16}
+                  className={`star ${star <= product.rating ? "filled" : "empty"}`}
+                />
+              ))}
+            </div>
+            <span className="rating-count">({product.reviews || 0})</span>
+          </div>
+          <p className="description">{product.description}</p>
+          <button className="add-to-cart">
+            <ShoppingCart size={16} />
+            <span>Add to Cart</span>
+          </button>
         </div>
       </div>
     );

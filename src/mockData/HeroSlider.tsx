@@ -1,24 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { heroSlides } from "./CategoryData";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
 export const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slidesToShow = 4;
+  const [slidesToShow, setSlidesToShow] = useState(4);
+  const [slideWidth, setSlideWidth] = useState(38 / 4);
   const totalSlides = heroSlides.length;
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setSlidesToShow(1);
+        setSlideWidth(6);
+      } else {
+        setSlidesToShow(4);
+        setSlideWidth(38 / 4);
+      }
+    };
+
+    // تعيين القيمة الأولية
+    handleResize();
+
+    // إضافة مستمع لتغيير حجم الشاشة
+    window.addEventListener("resize", handleResize);
+
+    // إزالة المستمع عند تفكيك المكون
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const nextSlide = () => {
-    setCurrentSlide((prev) =>
-      prev + slidesToShow >= totalSlides ? 0 : prev + slidesToShow
-    );
-  };
-  const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev - slidesToShow < 0 ? totalSlides - slidesToShow : prev - slidesToShow
-    );
+    setCurrentSlide((prev) => (prev + 1 >= totalSlides ? 0 : prev + 1));
   };
 
-  const slideWidth = 38 / slidesToShow;
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 < 0 ? totalSlides - 1 : prev - 1));
+  };
 
   return (
     <div className="hero-slider">
@@ -73,7 +90,9 @@ export const HeroSlider = () => {
               key={index}
               onClick={() => setCurrentSlide(index * slidesToShow)}
               className={`dot ${
-                currentSlide === index * slidesToShow ? "active" : ""
+                Math.floor(currentSlide / slidesToShow) === index
+                  ? "active"
+                  : ""
               }`}
             />
           )
