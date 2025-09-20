@@ -1,0 +1,283 @@
+.reopen-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.reopen-container .reopen-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.reopen-container .reopen-button:hover {
+  background-color: #1d4ed8;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5rem;
+  z-index: 50;
+}
+
+.overlay .dialog {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.overlay .dialog .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.overlay .dialog .header .title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+}
+
+.overlay .dialog .header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.overlay .dialog .header .header-actions .edit-cart-btn {
+  color: #2563eb;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.overlay .dialog .header .header-actions .edit-cart-btn:hover {
+  color: #1e40af;
+}
+
+.overlay .dialog .header .header-actions .close-btn {
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.overlay .dialog .header .header-actions .close-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.overlay .dialog .header .header-actions .close-btn .close-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+}
+
+.overlay .dialog .content {
+  padding: 1rem;
+}
+
+.overlay .dialog .content .items-count {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .order-summary {
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .order-summary .summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.overlay .dialog .content .order-summary .summary-row:last-child {
+  margin-bottom: 0;
+}
+
+.overlay .dialog .content .order-summary .summary-row .label {
+  color: #374151;
+}
+
+.overlay .dialog .content .order-summary .summary-row .value {
+  color: #111827;
+}
+
+.overlay .dialog .content .order-summary .summary-row .value.discount {
+  color: #dc2626;
+}
+
+.overlay .dialog .content .total-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .total-section .total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay .dialog .content .total-section .total-row .total-label,
+.overlay .dialog .content .total-section .total-row .total-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.overlay .dialog .content .coupon-section {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .coupon-section .coupon-input-container {
+  flex: 1;
+  position: relative;
+}
+
+.overlay .dialog .content .coupon-section .coupon-input-container .coupon-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem 0 0 0.375rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.overlay .dialog .content .coupon-section .coupon-input-container .coupon-input:focus {
+  ring: 2px;
+  ring-color: #3b82f6;
+  border-color: transparent;
+}
+
+.overlay .dialog .content .coupon-section .coupon-input-container .coupon-input::placeholder {
+  color: #9ca3af;
+}
+
+.overlay .dialog .content .coupon-section .apply-btn {
+  padding: 0.5rem 1rem;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0 0.375rem 0.375rem 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.overlay .dialog .content .coupon-section .apply-btn:hover {
+  background-color: #1f2937;
+}
+
+.overlay .dialog .content .savings-notice {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .savings-notice .savings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.overlay .dialog .content .savings-notice .savings-header .savings-text {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.overlay .dialog .content .savings-notice .savings-header .remove-btn {
+  font-size: 0.875rem;
+  color: #4b5563;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.overlay .dialog .content .savings-notice .savings-header .remove-btn:hover {
+  color: #1f2937;
+}
+
+.overlay .dialog .content .savings-notice .savings-amount {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.overlay .dialog .content .shipping-address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .shipping-address .address-label {
+  color: #111827;
+  font-weight: 500;
+}
+
+.overlay .dialog .content .shipping-address .change-btn {
+  color: #2563eb;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.overlay .dialog .content .shipping-address .change-btn:hover {
+  color: #1e40af;
+}
+
+.overlay .dialog .content .shipping-method {
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.overlay .dialog .content .shipping-method .method-label {
+  color: #9ca3af;
+}
+
+.overlay .dialog .content .payment {
+  padding-top: 0.5rem;
+}
+
+.overlay .dialog .content .payment .payment-label {
+  color: #9ca3af;
+}

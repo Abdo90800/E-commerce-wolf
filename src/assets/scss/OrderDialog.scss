@@ -1,0 +1,313 @@
+// Colors
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+$blue-500: #3b82f6;
+$blue-600: #2563eb;
+$blue-700: #1d4ed8;
+$blue-800: #1e40af;
+$red-600: #dc2626;
+$white: #ffffff;
+$black: #000000;
+
+// Reopen container styles
+.reopen-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $gray-100;
+
+  .reopen-button {
+    padding: 0.75rem 1.5rem;
+    background-color: $blue-600;
+    color: $white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $blue-700;
+    }
+  }
+}
+
+// Main dialog styles
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba($black, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5rem;
+  z-index: 50;
+
+  .dialog {
+    background-color: $white;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba($black, 0.25);
+
+    // Header styles
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid $gray-200;
+
+      .title {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: $gray-900;
+        margin: 0;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .edit-cart-btn {
+          color: $blue-600;
+          background: none;
+          border: none;
+          font-size: 0.875rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: $blue-800;
+          }
+        }
+
+        .close-btn {
+          padding: 0.25rem;
+          background: none;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out;
+
+          &:hover {
+            background-color: $gray-100;
+          }
+
+          .close-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: $gray-500;
+          }
+        }
+      }
+    }
+
+    // Content styles
+    .content {
+      padding: 1rem;
+
+      .items-count {
+        font-size: 0.875rem;
+        color: $gray-600;
+        margin-bottom: 1rem;
+      }
+
+      // Order summary
+      .order-summary {
+        margin-bottom: 1rem;
+
+        .summary-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.75rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .label {
+            color: $gray-700;
+          }
+
+          .value {
+            color: $gray-900;
+
+            &.discount {
+              color: $red-600;
+            }
+          }
+        }
+      }
+
+      // Total section
+      .total-section {
+        border-top: 1px solid $gray-200;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+
+        .total-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .total-label,
+          .total-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: $gray-900;
+          }
+        }
+      }
+
+      // Coupon section
+      .coupon-section {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+
+        .coupon-input-container {
+          flex: 1;
+          position: relative;
+
+          .coupon-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid $gray-300;
+            border-radius: 0.375rem 0 0 0.375rem;
+            font-size: 0.875rem;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+
+            &:focus {
+              ring: 2px;
+              ring-color: $blue-500;
+              border-color: transparent;
+            }
+
+            &::placeholder {
+              color: $gray-400;
+            }
+          }
+        }
+
+        .apply-btn {
+          padding: 0.5rem 1rem;
+          background-color: $black;
+          color: $white;
+          border: none;
+          font-size: 0.875rem;
+          font-weight: 500;
+          border-radius: 0 0.375rem 0.375rem 0;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out;
+
+          &:hover {
+            background-color: $gray-800;
+          }
+        }
+      }
+
+      // Savings notice
+      .savings-notice {
+        background-color: $gray-50;
+        border: 1px solid $gray-200;
+        border-radius: 0.375rem;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+
+        .savings-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.25rem;
+
+          .savings-text {
+            font-size: 0.875rem;
+            color: $gray-700;
+          }
+
+          .remove-btn {
+            font-size: 0.875rem;
+            color: $gray-600;
+            background: none;
+            border: none;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+              color: $gray-800;
+            }
+          }
+        }
+
+        .savings-amount {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: $gray-900;
+        }
+      }
+
+      // Shipping address
+      .shipping-address {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.5rem;
+        margin-bottom: 1rem;
+
+        .address-label {
+          color: $gray-900;
+          font-weight: 500;
+        }
+
+        .change-btn {
+          color: $blue-600;
+          background: none;
+          border: none;
+          font-size: 0.875rem;
+          font-weight: 500;
+          text-decoration: underline;
+          cursor: pointer;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: $blue-800;
+          }
+        }
+      }
+
+      // Shipping method
+      .shipping-method {
+        padding-top: 0.5rem;
+        margin-bottom: 1rem;
+
+        .method-label {
+          color: $gray-400;
+        }
+      }
+
+      // Payment
+      .payment {
+        padding-top: 0.5rem;
+
+        .payment-label {
+          color: $gray-400;
+        }
+      }
+    }
+  }
+}

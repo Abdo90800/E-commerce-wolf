@@ -17,11 +17,11 @@ import {
   Twitter,
   Linkedin,
 } from "lucide-react";
-import iconpayment from "../assets/svgs/iconpayment.svg";
-import iconpayment2 from "../assets/svgs/iconpayment2.svg";
 import styles from "./CheckOut.module.scss";
+import { OrderDialog } from "../components/OrderDialog";
 
 export default function CheckoutPage() {
+  const [showOrderDialog, setShowOrderDialog] = useState(false);
   const [formData, setFormData] = useState({
     state: "",
     city: "",
@@ -146,7 +146,11 @@ export default function CheckoutPage() {
       <main className={styles.mainContent}>
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>Checkout</h1>
-          <div className={styles.orderSummary}>
+          <div
+            className={styles.orderSummary}
+            onClick={() => setShowOrderDialog(true)}
+            style={{ cursor: "pointer" }}
+          >
             <span className={styles.summaryText}>Show Order Summary: </span>
             <span className={styles.summaryAmount}>379 EGP</span>
           </div>
@@ -162,7 +166,6 @@ export default function CheckoutPage() {
               <span className={`${styles.stepText} ${styles.completed}`}>
                 Shipping Address
               </span>
-              
             </div>
 
             <div className={styles.step}>
@@ -470,6 +473,12 @@ export default function CheckoutPage() {
           </div>
         </div>
       </footer>
+      {showOrderDialog && (
+        <OrderDialog
+          isOpen={showOrderDialog}
+          onClose={() => setShowOrderDialog(false)}
+        />
+      )}
     </div>
   );
 }

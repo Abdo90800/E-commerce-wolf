@@ -6,6 +6,7 @@ import { lazy } from "react";
 // import Checkout from "../pages/Checkout/Checkout";
 // import CheckoutPage from "../pages/CheckOut";
 import { CheckoutShipping } from "../pages/CheckoutShipping";
+import CheckoutPage from "../pages/Checkoutpage3";
 
 const MainRoutes = [
   {
@@ -28,7 +29,7 @@ const MainRoutes = [
   // },
   {
     path: "/:locale",
-    element: <CheckoutShipping />,
+    element: <CheckoutPage />,
     children: [],
   },
 ];

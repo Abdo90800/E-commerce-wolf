@@ -14,7 +14,6 @@ import {
   Instagram,
   Twitter,
   Linkedin,
-  X,
 } from "lucide-react";
 import styles from "./_CheckOutShipping.module.scss";
 import iconpayment from "../assets/svgs/iconpayment.svg";
@@ -24,16 +23,17 @@ import mastercard from "../assets/svgs/Mastercard.png";
 import paypal from "../assets/svgs/image 20.svg";
 import cash from "../assets/svgs/image 22.svg";
 import other from "../assets/svgs/image 23.svg";
+import { OrderDialog } from "../components/OrderDialog";
 
 export function CheckoutShipping() {
   const [selectedMethod, setSelectedMethod] = useState("scheduled");
-  const [showSummary, setShowSummary] = useState(false);
   const [contactInfo, setContactInfo] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
   });
+  const [showOrderDialog, setShowOrderDialog] = useState(false);
 
   const handleContactChange = (e) => {
     setContactInfo({
@@ -149,14 +149,14 @@ export function CheckoutShipping() {
       <main className={styles.mainContent}>
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>Checkout</h1>
-          <button
-            type="button"
+          <div
             className={styles.orderSummary}
-            onClick={() => setShowSummary(true)}
+            onClick={() => setShowOrderDialog(true)}
+            style={{ cursor: "pointer" }}
           >
             <span className={styles.summaryText}>Show Order Summary: </span>
             <span className={styles.summaryAmount}>379 EGP</span>
-          </button>
+          </div>
         </div>
 
         {/* Steps */}
@@ -420,87 +420,6 @@ export function CheckoutShipping() {
         </div>
       </main>
 
-      {showSummary && (
-        <div
-          className={styles.summaryModalOverlay}
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setShowSummary(false)}
-        >
-          <div
-            className={styles.summaryModal}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              aria-label="Close"
-              className={styles.summaryClose}
-              onClick={() => setShowSummary(false)}
-            >
-              <X size={18} />
-            </button>
-
-            <div className={styles.summaryHeaderRow}>
-              <h3 className={styles.summaryTitle}>Your Order Total</h3>
-              <button type="button" className={styles.summaryLink}>Edit Cart</button>
-            </div>
-
-            <hr className={styles.summaryDivider} />
-
-            <div className={styles.summaryItemsCount}>3 Items</div>
-
-            <div className={styles.summaryRow}>
-              <span>Subtotal (3items)</span>
-              <span>375 EGP</span>
-            </div>
-            <div className={styles.summaryRow}>
-              <span>Shipping</span>
-              <span>40 EGP</span>
-            </div>
-            <div className={`${styles.summaryRow} ${styles.negative}`}>
-              <span>Discount</span>
-              <span>-50 EGP</span>
-            </div>
-            <div className={styles.summaryRow}>
-              <span>Tax</span>
-              <span>14 EGP</span>
-            </div>
-
-            <div className={`${styles.summaryRow} ${styles.summaryTotal}`}>
-              <span>Total Order</span>
-              <span>379 EGP</span>
-            </div>
-
-            <div className={styles.couponRow}>
-              <input className={styles.couponInput} placeholder="Coupon code" />
-              <button className={styles.couponApply}>Apply</button>
-            </div>
-
-            <div className={styles.savingBox}>
-              <span>Your saving on this order  50 EGP</span>
-              <button type="button" className={styles.savingRemove}>Remove</button>
-            </div>
-
-            <div className={styles.sectionHeader}>
-              <span>Shipping Address</span>
-              <button type="button" className={styles.summaryLink}>Change</button>
-            </div>
-
-            <hr className={styles.summaryDivider} />
-
-            <div className={`${styles.sectionHeader} ${styles.disabled}`}> 
-              <span>Shipping Method</span>
-            </div>
-
-            <hr className={styles.summaryDivider} />
-
-            <div className={`${styles.sectionHeader} ${styles.disabled}`}>
-              <span>Payment</span>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Footer */}
       <footer className={styles.footer}>
         <div className={styles.footerContainer}>
@@ -630,6 +549,12 @@ export function CheckoutShipping() {
           </div>
         </div>
       </footer>
+      {showOrderDialog && (
+        <OrderDialog
+          isOpen={showOrderDialog}
+          onClose={() => setShowOrderDialog(false)}
+        />
+      )}
     </div>
   );
 }
