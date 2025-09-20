@@ -1,10 +1,11 @@
 import { redirect } from "react-router-dom";
 import { lazy } from "react";
 
-import { MainLayout } from "../layouts";
-import { CategoryPage } from "../pages";
-import Checkout from "../pages/Checkout/Checkout";
-import CheckoutPage from "../pages/CheckOut";
+// import { MainLayout } from "../layouts";
+// import { CategoryPage } from "../pages";
+// import Checkout from "../pages/Checkout/Checkout";
+// import CheckoutPage from "../pages/CheckOut";
+import { CheckoutShipping } from "../pages/CheckoutShipping";
 
 const MainRoutes = [
   {
@@ -27,7 +28,7 @@ const MainRoutes = [
   // },
   {
     path: "/:locale",
-    element: <CheckoutPage />,
+    element: <CheckoutShipping />,
     children: [],
   },
 ];
